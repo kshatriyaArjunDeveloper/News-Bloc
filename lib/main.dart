@@ -7,14 +7,19 @@ import 'package:news_bloc/presentation/theme/app_styles.dart';
 
 void main() {
   runApp(
-    MyApp(appRouter: AppRouter()),
+    const MyApp(),
   );
 }
 
-class MyApp extends StatelessWidget {
-  final AppRouter appRouter;
+class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-  const MyApp({Key? key, required this.appRouter}) : super(key: key);
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final AppRouter _appRouter = AppRouter();
 
   @override
   Widget build(BuildContext context) {
@@ -25,9 +30,14 @@ class MyApp extends StatelessWidget {
               backgroundColor: AppColors.white,
               systemOverlayStyle: AppStyles.whiteStatusBarStyle,
               elevation: 0)),
-      home: const HomeScreen(),
       debugShowCheckedModeBanner: false,
-      onGenerateRoute: appRouter.onGenerateRoute,
+      onGenerateRoute: _appRouter.onGenerateRoute,
     );
+  }
+
+  @override
+  void dispose() {
+    _appRouter.dispose();
+    super.dispose();
   }
 }

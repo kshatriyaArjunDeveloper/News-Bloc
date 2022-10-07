@@ -27,4 +27,8 @@ class AppRouter {
         return null;
     }
   }
+
+  void dispose() {
+    _newsCubit.close();
+  }
 }
