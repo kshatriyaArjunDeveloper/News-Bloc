@@ -3,6 +3,8 @@ class Result<T> {
   final T? data;
 
   Result({this.error, this.data});
+
+  isFetchedSuccessfully() => data != null;
 }
 
 class ApiException implements Exception {

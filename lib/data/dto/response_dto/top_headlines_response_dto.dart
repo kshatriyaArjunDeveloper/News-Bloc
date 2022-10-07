@@ -1,3 +1,5 @@
+import 'package:news_bloc/domain/models/news_model.dart';
+
 class TopHeadlinesResponseDto {
   late final String? status;
   late final String? message;
@@ -16,6 +18,17 @@ class TopHeadlinesResponseDto {
     articles = (json['articles'] as List<dynamic>)
         .map((e) => Articles.fromJson(e as Map<String, dynamic>))
         .toList();
+  }
+
+  List<NewsModel> getNewsList() {
+    final newsList = articles.map((e) => NewsModel(
+        newsSource: e.source.name,
+        headline: e.title,
+        content: e.content,
+        time: e.publishedAt,
+        imageUrl: e.urlToImage,
+        newsUrl: e.url));
+    return newsList.toList();
   }
 }
 
