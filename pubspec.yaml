@@ -16,6 +16,8 @@ dependencies:
   flutter_bloc: ^8.0.0
   # For API calls
   dio: ^4.0.6
+  # Lottie
+  lottie: ^1.4.3
 
 dev_dependencies:
   flutter_test:
@@ -27,6 +29,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/animations/
 
   fonts:
     - family: poppins

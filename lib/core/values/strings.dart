@@ -8,6 +8,7 @@ class HomeStrings {
   HomeStrings._privateConstructor();
 
   static const topHeadlines = 'Top Headlines';
+  static const fetchNews = 'Fetching latest news..';
 }
 
 class ErrorMessagesStrings {

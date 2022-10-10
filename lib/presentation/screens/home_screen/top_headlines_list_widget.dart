@@ -11,24 +11,36 @@ import 'package:news_bloc/presentation/theme/app_text_styles.dart';
 
 import '../../../core/values/images.dart';
 
-class TopHeadlinesListWidget extends StatelessWidget {
+class TopHeadlinesWidget extends StatelessWidget {
   final List<NewsModel> newsList;
 
-  const TopHeadlinesListWidget({
+  const TopHeadlinesWidget({
     Key? key,
     required this.newsList,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.builder(
-        itemCount: newsList.length,
-        itemBuilder: (context, index) {
-          var item = newsList[index];
-          return TopHeadlinesListItemWidget(item: item);
-        },
-      ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          HomeStrings.topHeadlines,
+          style: AppTextStyles.tsMontSemiBoldBlack18,
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        Expanded(
+          child: ListView.builder(
+            itemCount: newsList.length,
+            itemBuilder: (context, index) {
+              var item = newsList[index];
+              return TopHeadlinesListItemWidget(item: item);
+            },
+          ),
+        ),
+      ],
     );
   }
 }
