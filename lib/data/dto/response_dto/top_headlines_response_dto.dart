@@ -25,7 +25,7 @@ class TopHeadlinesResponseDto {
         newsSource: e.source.name,
         headline: e.title,
         content: e.content,
-        time: e.publishedAt,
+        time: e.getTimeInAgo(),
         imageUrl: e.urlToImage,
         newsUrl: e.url));
     return newsList.toList();
@@ -55,6 +55,27 @@ class Articles {
     source = Source.fromJson(json['source']);
     content = json['content'];
     url = json['url'];
+  }
+
+  String getTimeInAgo() {
+    Duration diff = DateTime.now().difference(DateTime.parse(publishedAt));
+    if (diff.inDays > 1) {
+      return '${diff.inDays} days ago';
+    } else if (diff.inDays == 1) {
+      return '${diff.inDays} day ago';
+    } else if (diff.inHours > 1) {
+      return '${diff.inHours} hours ago';
+    } else if (diff.inHours == 1) {
+      return '${diff.inHours} hour ago';
+    } else if (diff.inMinutes > 1) {
+      return '${diff.inMinutes} mins ago';
+    } else if (diff.inMinutes == 1) {
+      return '${diff.inMinutes} min ago';
+    } else if (diff.inSeconds > 1) {
+      return '${diff.inSeconds} seconds ago';
+    } else {
+      return 'just now';
+    }
   }
 }
 
