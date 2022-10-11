@@ -15,7 +15,7 @@ class NewsCubit extends Cubit<NewsFetchState> {
     if (newsListResult.isFetchedSuccessfully()) {
       emit(NewsFetchedSuccess(newsModelList: newsListResult.data!));
     } else {
-      emit(NewsFetchFailure());
+      emit(NewsFetchFailure(errorMessage: newsListResult.error!.errorMessage));
     }
   }
 }

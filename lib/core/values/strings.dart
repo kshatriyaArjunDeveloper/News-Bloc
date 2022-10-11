@@ -4,11 +4,10 @@ class AppStrings {
   static const appName = 'BlocNews';
 }
 
-class HomeStrings {
-  HomeStrings._privateConstructor();
+class CommonStrings {
+  CommonStrings._privateConstructor();
 
-  static const topHeadlines = 'Top Headlines';
-  static const fetchNews = 'Fetching latest news..';
+  static const tryAgain = 'Try Again';
 }
 
 class ErrorMessagesStrings {
@@ -17,4 +16,11 @@ class ErrorMessagesStrings {
   static const noInternet = 'Please check your internet connection';
   static const somethingWentWrong =
       'Something went wrong.\nPlease try again later.';
+}
+
+class HomeStrings {
+  HomeStrings._privateConstructor();
+
+  static const topHeadlines = 'Top Headlines';
+  static const fetchNews = 'Fetching latest news..';
 }

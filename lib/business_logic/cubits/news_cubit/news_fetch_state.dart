@@ -6,7 +6,11 @@ abstract class NewsFetchState {}
 
 class NewsFetchLoading extends NewsFetchState {}
 
-class NewsFetchFailure extends NewsFetchState {}
+class NewsFetchFailure extends NewsFetchState {
+  final String errorMessage;
+
+  NewsFetchFailure({required this.errorMessage});
+}
 
 class NewsFetchedSuccess extends NewsFetchState {
   final List<NewsModel> newsModelList;

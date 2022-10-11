@@ -36,7 +36,7 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.all(16.0),
           child: BlocBuilder<NewsCubit, NewsFetchState>(
             builder: (context, state) {
-              if (state is NewsFetchedSuccess ) {
+              if (state is NewsFetchedSuccess) {
                 return TopHeadlinesWidget(
                   newsList: state.newsModelList,
                 );
@@ -57,14 +57,45 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               } else if (state is NewsFetchFailure) {
-                return const Text(
-                  'FAILED',
-                  style: AppTextStyles.tsMontSemiBoldBlack18,
+                return Center(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Lottie.asset(
+                        Animations.error,
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      Text(
+                        state.errorMessage,
+                        style: AppTextStyles.tsMontBoldBlueDark18,
+                      ),
+                      const SizedBox(
+                        height: 24,
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          context.read<NewsCubit>().fetch();
+                        },
+                        style: const ButtonStyle(
+                            backgroundColor:
+                                MaterialStatePropertyAll(AppColors.blue),
+                            padding: MaterialStatePropertyAll(
+                                EdgeInsets.symmetric(horizontal: 16))),
+                        child: const Text(
+                          CommonStrings.tryAgain,
+                          style: AppTextStyles.tsMontSemiBoldWhite12,
+                        ),
+                      )
+                    ],
+                  ),
                 );
               } else {
                 return const Text(
-                  'SOME THING IS WRONG',
+                  ErrorMessagesStrings.somethingWentWrong,
                   style: AppTextStyles.tsMontSemiBoldBlack18,
+                  textAlign: TextAlign.center,
                 );
               }
             },

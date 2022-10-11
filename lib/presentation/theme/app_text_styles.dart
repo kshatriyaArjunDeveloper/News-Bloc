@@ -12,6 +12,12 @@ class AppTextStyles {
     fontSize: 18,
   );
 
+  static const tsMontSemiBoldWhite12 = TextStyle(
+    color: AppColors.white,
+    fontWeight: FontWeight.w600,
+    fontSize: 12,
+  );
+
   static const tsMontSemiBoldBlack18 = TextStyle(
     color: AppColors.black,
     fontWeight: FontWeight.w600,
@@ -36,6 +42,5 @@ class AppTextStyles {
     color: AppColors.greyLight,
     fontWeight: FontWeight.w500,
     fontSize: 10,
-    // fontFamily: AppFonts.poppins,
   );
 }

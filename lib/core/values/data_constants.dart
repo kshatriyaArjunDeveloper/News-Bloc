@@ -20,4 +20,6 @@ class Keys {
   // static const apiKey = "b5170d10ac334ed89de29a807c0fc94c";
   // static const apiKey = "4b8d50392a31459f8b1ccaa3f1c2d21e";
   static const apiKey = "33f6c363d2fa4ef29b7185a5945cd5cc";
+  // WRONG KEY
+  // static const apiKey = "kjfljaffasfd";
 }
