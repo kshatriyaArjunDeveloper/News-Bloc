@@ -16,6 +16,8 @@ dependencies:
   flutter_bloc: ^8.0.0
   # For API calls
   dio: ^4.0.6
+  # For Internet connectivity
+  connectivity_plus: ^2.3.7
   # Lottie
   lottie: ^1.4.3
 

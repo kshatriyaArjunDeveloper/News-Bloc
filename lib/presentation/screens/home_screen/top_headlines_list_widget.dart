@@ -55,21 +55,24 @@ class TopHeadlinesListItemWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 0,
-      color: AppColors.white,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: IntrinsicHeight(
-          child: Row(
-            children: [
-              TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
-              const SizedBox(
-                width: 8,
-              ),
-              TopHeadlinesListItemNewsTextContentWidget(item: item)
-            ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 4),
+      child: Card(
+        elevation: 0,
+        color: AppColors.white,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: IntrinsicHeight(
+            child: Row(
+              children: [
+                TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
+                const SizedBox(
+                  width: 8,
+                ),
+                TopHeadlinesListItemNewsTextContentWidget(item: item)
+              ],
+            ),
           ),
         ),
       ),

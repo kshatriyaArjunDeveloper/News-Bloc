@@ -5,9 +5,7 @@ import 'package:news_bloc/domain/repositories/news_repository.dart';
 class NewsCubit extends Cubit<NewsFetchState> {
   final NewsRepository newsRepository;
 
-  NewsCubit({required this.newsRepository}) : super(NewsFetchLoading()) {
-    fetch();
-  }
+  NewsCubit({required this.newsRepository}) : super(NewsFetchLoading());
 
   Future<void> fetch() async {
     emit(NewsFetchLoading());
