@@ -4,8 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_bloc/business_logic/cubits/internet_cubit/internet_cubit.dart';
 import 'package:news_bloc/business_logic/cubits/news_cubit/news_cubit.dart';
 import 'package:news_bloc/core/utility/data/network_requester.dart';
+import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
+import 'package:news_bloc/domain/models/news_model.dart';
 import 'package:news_bloc/domain/repositories/news_repository.dart';
+import 'package:news_bloc/presentation/screens/news_detail_screen/news_detail_screen.dart';
 
 import '../screens/home_screen/home_screen.dart';
 
@@ -31,6 +34,13 @@ class AppRouter {
             child: const HomeScreen(),
           ),
         );
+      case ScreenNavigation.newsDetailsScreen:
+        final args = routeSettings.arguments as NewsModel;
+        return MaterialPageRoute(
+          builder: (_) => NewsDetailScreen(
+            newsModel: args,
+          ),
+        );
       default:
         return null;
     }
@@ -38,5 +48,6 @@ class AppRouter {
 
   void dispose() {
     _newsCubit.close();
+    _internetCubit.close();
   }
 }

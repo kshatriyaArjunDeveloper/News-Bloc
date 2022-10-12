@@ -56,7 +56,8 @@ class HomeScreen extends StatelessWidget {
                 stateTextMessage: ErrorMessagesStrings.noInternet,
                 slotWidget: TryAgainFetchNewsButton(),
               );
-            } else if (newsState is NewsFetchLoading || newsState is NewsFetchNothing) {
+            } else if (newsState is NewsFetchLoading ||
+                newsState is NewsFetchNothing) {
               return const StateWithAnimationMessageWidget(
                 animationAsset: Animations.loading,
                 stateTextMessage: HomeStrings.fetchNews,

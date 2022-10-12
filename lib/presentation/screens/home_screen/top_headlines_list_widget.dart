@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:news_bloc/business_logic/cubits/news_cubit/news_cubit.dart';
 import 'package:news_bloc/business_logic/cubits/news_cubit/news_fetch_state.dart';
 import 'package:news_bloc/core/utility/data/network_requester.dart';
+import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/core/values/strings.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
@@ -61,17 +62,27 @@ class TopHeadlinesListItemWidget extends StatelessWidget {
         elevation: 0,
         color: AppColors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-        child: Padding(
-          padding: const EdgeInsets.all(12.0),
-          child: IntrinsicHeight(
-            child: Row(
-              children: [
-                TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
-                const SizedBox(
-                  width: 8,
-                ),
-                TopHeadlinesListItemNewsTextContentWidget(item: item)
-              ],
+        child: InkWell(
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              ScreenNavigation.newsDetailsScreen,
+              arguments: item,
+            );
+          },
+          splashColor: AppColors.blueVeryLight,
+          child: Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: IntrinsicHeight(
+              child: Row(
+                children: [
+                  TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
+                  const SizedBox(
+                    width: 8,
+                  ),
+                  TopHeadlinesListItemNewsTextContentWidget(item: item)
+                ],
+              ),
             ),
           ),
         ),
