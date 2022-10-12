@@ -4,6 +4,8 @@ import 'package:news_bloc/domain/models/news_model.dart';
 @immutable
 abstract class NewsFetchState {}
 
+class NewsFetchNothing extends NewsFetchState {}
+
 class NewsFetchLoading extends NewsFetchState {}
 
 class NewsFetchFailure extends NewsFetchState {
@@ -17,6 +19,3 @@ class NewsFetchedSuccess extends NewsFetchState {
 
   NewsFetchedSuccess({required this.newsModelList});
 }
-
-/// @Arjun todo To be implemented
-// class NoInternet extends NewsState {}

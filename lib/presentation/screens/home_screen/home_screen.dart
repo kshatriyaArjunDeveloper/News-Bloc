@@ -38,7 +38,8 @@ class HomeScreen extends StatelessWidget {
           },
           listenWhen: (blocContext, state) {
             final isNewsResultNotFetched =
-                context.read<NewsCubit>().state is! NewsFetchedSuccess;
+                context.read<NewsCubit>().state is NewsFetchFailure ||
+                    context.read<NewsCubit>().state is NewsFetchNothing;
             return isNewsResultNotFetched && state is InternetConnected;
           },
           child: Builder(builder: (context) {
@@ -55,7 +56,7 @@ class HomeScreen extends StatelessWidget {
                 stateTextMessage: ErrorMessagesStrings.noInternet,
                 slotWidget: TryAgainFetchNewsButton(),
               );
-            } else if (newsState is NewsFetchLoading) {
+            } else if (newsState is NewsFetchLoading || newsState is NewsFetchNothing) {
               return const StateWithAnimationMessageWidget(
                 animationAsset: Animations.loading,
                 stateTextMessage: HomeStrings.fetchNews,
@@ -89,9 +90,7 @@ class TryAgainFetchNewsButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-      onPressed: () {
-        context.read<NewsCubit>().fetch();
-      },
+      onPressed: context.read<NewsCubit>().fetch,
       style: const ButtonStyle(
           backgroundColor: MaterialStatePropertyAll(AppColors.blue),
           padding:
