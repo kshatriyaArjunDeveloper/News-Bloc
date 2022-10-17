@@ -7,6 +7,7 @@ import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/core/values/strings.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
+import 'package:news_bloc/presentation/screens/news_detail_screen/view/news_detail_screen.dart';
 import 'package:news_bloc/presentation/theme/app_colors.dart';
 import 'package:news_bloc/presentation/theme/app_text_styles.dart';
 
@@ -64,11 +65,7 @@ class _TopHeadlinesListItemWidget extends StatelessWidget {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         child: InkWell(
           onTap: () {
-            Navigator.pushNamed(
-              context,
-              ScreenNavigation.newsDetailsScreen,
-              arguments: item,
-            );
+            NewsDetailScreen.goToNewsDetailScreen(context, item);
           },
           splashColor: AppColors.blueVeryLight,
           child: Padding(
