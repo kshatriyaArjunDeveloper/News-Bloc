@@ -54,7 +54,7 @@ class HomeScreen extends StatelessWidget {
               return const StateWithAnimationMessageWidget(
                 animationAsset: Animations.noInternet,
                 stateTextMessage: ErrorMessagesStrings.noInternet,
-                slotWidget: TryAgainFetchNewsButton(),
+                slotWidget: _TryAgainFetchNewsButton(),
               );
             } else if (newsState is NewsFetchLoading ||
                 newsState is NewsFetchNothing) {
@@ -67,13 +67,13 @@ class HomeScreen extends StatelessWidget {
               return StateWithAnimationMessageWidget(
                 animationAsset: Animations.error,
                 stateTextMessage: newsState.errorMessage,
-                slotWidget: const TryAgainFetchNewsButton(),
+                slotWidget: const _TryAgainFetchNewsButton(),
               );
             } else {
               return const StateWithAnimationMessageWidget(
                 animationAsset: Animations.error,
                 stateTextMessage: ErrorMessagesStrings.somethingWentWrong,
-                slotWidget: TryAgainFetchNewsButton(),
+                slotWidget: _TryAgainFetchNewsButton(),
               );
             }
           }),
@@ -83,8 +83,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class TryAgainFetchNewsButton extends StatelessWidget {
-  const TryAgainFetchNewsButton({
+class _TryAgainFetchNewsButton extends StatelessWidget {
+  const _TryAgainFetchNewsButton({
     Key? key,
   }) : super(key: key);
 

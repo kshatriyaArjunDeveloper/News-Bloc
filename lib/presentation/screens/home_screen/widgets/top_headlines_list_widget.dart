@@ -37,7 +37,7 @@ class TopHeadlinesWidget extends StatelessWidget {
             itemCount: newsList.length,
             itemBuilder: (context, index) {
               var item = newsList[index];
-              return TopHeadlinesListItemWidget(item: item);
+              return _TopHeadlinesListItemWidget(item: item);
             },
           ),
         ),
@@ -46,8 +46,8 @@ class TopHeadlinesWidget extends StatelessWidget {
   }
 }
 
-class TopHeadlinesListItemWidget extends StatelessWidget {
-  const TopHeadlinesListItemWidget({
+class _TopHeadlinesListItemWidget extends StatelessWidget {
+  const _TopHeadlinesListItemWidget({
     Key? key,
     required this.item,
   }) : super(key: key);
@@ -76,11 +76,11 @@ class TopHeadlinesListItemWidget extends StatelessWidget {
             child: IntrinsicHeight(
               child: Row(
                 children: [
-                  TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
+                  _TopHeadlinesListItemNewsImageWidget(imageUrl: item.imageUrl),
                   const SizedBox(
                     width: 8,
                   ),
-                  TopHeadlinesListItemNewsTextContentWidget(item: item)
+                  _TopHeadlinesListItemNewsTextContentWidget(item: item)
                 ],
               ),
             ),
@@ -91,8 +91,8 @@ class TopHeadlinesListItemWidget extends StatelessWidget {
   }
 }
 
-class TopHeadlinesListItemNewsImageWidget extends StatelessWidget {
-  const TopHeadlinesListItemNewsImageWidget({
+class _TopHeadlinesListItemNewsImageWidget extends StatelessWidget {
+  const _TopHeadlinesListItemNewsImageWidget({
     Key? key,
     required this.imageUrl,
   }) : super(key: key);
@@ -127,8 +127,8 @@ class TopHeadlinesListItemNewsImageWidget extends StatelessWidget {
   }
 }
 
-class TopHeadlinesListItemNewsTextContentWidget extends StatelessWidget {
-  const TopHeadlinesListItemNewsTextContentWidget({
+class _TopHeadlinesListItemNewsTextContentWidget extends StatelessWidget {
+  const _TopHeadlinesListItemNewsTextContentWidget({
     Key? key,
     required this.item,
   }) : super(key: key);

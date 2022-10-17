@@ -21,7 +21,7 @@ class NewsDetailScreen extends StatelessWidget {
       backgroundColor: AppColors.grey,
       body: Column(
         children: [
-          NewsHeaderWidget(newsModel: newsModel),
+          _NewsHeaderWidget(newsModel: newsModel),
           Expanded(
             child: Card(
               margin: const EdgeInsets.all(12),
@@ -64,8 +64,8 @@ class NewsDetailScreen extends StatelessWidget {
   }
 }
 
-class NewsHeaderWidget extends StatelessWidget {
-  const NewsHeaderWidget({
+class _NewsHeaderWidget extends StatelessWidget {
+  const _NewsHeaderWidget({
     Key? key,
     required this.newsModel,
   }) : super(key: key);
