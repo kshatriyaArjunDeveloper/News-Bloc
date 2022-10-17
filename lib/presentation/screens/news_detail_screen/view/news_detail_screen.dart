@@ -5,10 +5,10 @@ import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
 import 'package:news_bloc/presentation/theme/app_colors.dart';
 
-import '../../../business_logic/cubits/internet_cubit/internet_cubit.dart';
-import '../../../business_logic/cubits/internet_cubit/internet_state.dart';
-import '../../../core/values/images.dart';
-import '../../theme/app_text_styles.dart';
+import '../../../../business_logic/cubits/internet_cubit/internet_cubit.dart';
+import '../../../../business_logic/cubits/internet_cubit/internet_state.dart';
+import '../../../../core/values/images.dart';
+import '../../../theme/app_text_styles.dart';
 
 class NewsDetailScreen extends StatelessWidget {
   final NewsModel newsModel;

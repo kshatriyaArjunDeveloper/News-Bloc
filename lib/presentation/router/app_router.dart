@@ -8,9 +8,9 @@ import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
 import 'package:news_bloc/domain/repositories/news_repository.dart';
-import 'package:news_bloc/presentation/screens/news_detail_screen/news_detail_screen.dart';
+import 'package:news_bloc/presentation/screens/news_detail_screen/view/news_detail_screen.dart';
 
-import '../screens/home_screen/home_screen.dart';
+import '../screens/home_screen/view/home_screen.dart';
 
 class AppRouter {
   /* CUBITS AND BLOCKS */

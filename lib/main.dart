@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_bloc/presentation/router/app_router.dart';
-import 'package:news_bloc/presentation/screens/home_screen/home_screen.dart';
+import 'package:news_bloc/presentation/screens/home_screen/view/home_screen.dart';
 import 'package:news_bloc/presentation/theme/app_colors.dart';
 import 'package:news_bloc/presentation/theme/app_fonts.dart';
 import 'package:news_bloc/presentation/theme/app_styles.dart';

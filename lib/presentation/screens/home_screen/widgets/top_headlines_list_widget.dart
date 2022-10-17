@@ -10,7 +10,7 @@ import 'package:news_bloc/domain/models/news_model.dart';
 import 'package:news_bloc/presentation/theme/app_colors.dart';
 import 'package:news_bloc/presentation/theme/app_text_styles.dart';
 
-import '../../../core/values/images.dart';
+import '../../../../core/values/images.dart';
 
 class TopHeadlinesWidget extends StatelessWidget {
   final List<NewsModel> newsList;

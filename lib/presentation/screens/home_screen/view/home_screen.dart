@@ -8,14 +8,14 @@ import 'package:news_bloc/core/values/animations.dart';
 import 'package:news_bloc/core/values/strings.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
-import 'package:news_bloc/presentation/screens/home_screen/top_headlines_list_widget.dart';
+import 'package:news_bloc/presentation/screens/home_screen/widgets/top_headlines_list_widget.dart';
 import 'package:news_bloc/presentation/theme/app_colors.dart';
 import 'package:news_bloc/presentation/theme/app_text_styles.dart';
 
-import '../../../business_logic/cubits/internet_cubit/internet_cubit.dart';
-import '../../../business_logic/cubits/internet_cubit/internet_state.dart';
-import '../../../core/values/images.dart';
-import '../../widgets/state_with_animation_message_widget.dart';
+import '../../../../business_logic/cubits/internet_cubit/internet_cubit.dart';
+import '../../../../business_logic/cubits/internet_cubit/internet_state.dart';
+import '../../../../core/values/images.dart';
+import '../../../widgets/state_with_animation_message_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
