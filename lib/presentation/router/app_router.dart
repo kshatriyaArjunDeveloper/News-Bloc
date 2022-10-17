@@ -14,13 +14,23 @@ import '../screens/home_screen/home_screen.dart';
 
 class AppRouter {
   /* CUBITS AND BLOCKS */
-  final NewsCubit _newsCubit = NewsCubit(
-      newsRepository: NewsRepository(
-          newsApiRemoteDataSource:
-              NewsApiRemoteDataSource(networkRequester: NetworkRequester())));
+  late NewsCubit _newsCubit;
+  late InternetCubit _internetCubit;
 
-  final InternetCubit _internetCubit =
-      InternetCubit(connectivity: Connectivity());
+  AppRouter() {
+    final networkRequester = NetworkRequester();
+
+    // DATA SOURCES
+    final newsApiRemoteDataSource =
+        NewsApiRemoteDataSource(networkRequester: networkRequester);
+
+    // REPOSITORIES
+    final newsRepository =
+        NewsRepository(newsApiRemoteDataSource: newsApiRemoteDataSource);
+
+    _newsCubit = NewsCubit(newsRepository: newsRepository);
+    _internetCubit = InternetCubit(connectivity: Connectivity());
+  }
 
   Route? onGenerateRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
