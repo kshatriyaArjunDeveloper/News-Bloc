@@ -24,6 +24,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'BlocNews',
       theme: ThemeData(
           fontFamily: AppFonts.montserrat,
           appBarTheme: const AppBarTheme(
