@@ -4,7 +4,7 @@ class TopHeadlinesResponseDto {
   late final String? status;
   late final String? message;
   late final int totalResults;
-  late final List<Articles> articles;
+  late final List<Article> articles;
 
   TopHeadlinesResponseDto(
       {required this.status,
@@ -16,7 +16,7 @@ class TopHeadlinesResponseDto {
     message = json['message'];
     totalResults = json['totalResults'];
     articles = (json['articles'] as List<dynamic>)
-        .map((e) => Articles.fromJson(e as Map<String, dynamic>))
+        .map((e) => Article.fromJson(e as Map<String, dynamic>))
         .toList();
   }
 
@@ -32,7 +32,7 @@ class TopHeadlinesResponseDto {
   }
 }
 
-class Articles {
+class Article {
   late final String title;
   late final String publishedAt;
   late final String? urlToImage;
@@ -40,7 +40,7 @@ class Articles {
   late final String? content;
   late final String url;
 
-  Articles(
+  Article(
       {required this.title,
       required this.publishedAt,
       required this.urlToImage,
@@ -48,7 +48,7 @@ class Articles {
       required this.content,
       required this.url});
 
-  Articles.fromJson(Map<String, dynamic> json) {
+  Article.fromJson(Map<String, dynamic> json) {
     title = json['title'];
     publishedAt = json['publishedAt'];
     urlToImage = json['urlToImage'];

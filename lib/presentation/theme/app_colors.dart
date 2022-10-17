@@ -15,9 +15,4 @@ class AppColors {
   static const black = Colors.black;
 
   static const greyLight = Color(0xff90A3BF);
-
-  static const primaryColor = Color(0xff0C54BE);
-  static const primaryColorDark = Color(0xff303F60);
-  static const secondaryColor = Color(0xFFF5F9FD);
-  static const secondaryColorDark = Color(0xFFCED3DC);
 }
