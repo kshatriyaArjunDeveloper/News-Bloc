@@ -9,7 +9,8 @@ import '../../../theme/app_text_styles.dart';
 class NewsDetailScreen extends StatelessWidget {
   final NewsModel newsModel;
 
-  static goToNewsDetailScreen(BuildContext context, NewsModel newsModelArgument) {
+  static goToNewsDetailScreen(
+      BuildContext context, NewsModel newsModelArgument) {
     Navigator.pushNamed(
       context,
       ScreenNavigation.newsDetailsScreen,
@@ -24,6 +25,7 @@ class NewsDetailScreen extends StatelessWidget {
     return Scaffold(
       backgroundColor: AppColors.grey,
       body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           _NewsHeaderWidget(newsModel: newsModel),
           Expanded(
