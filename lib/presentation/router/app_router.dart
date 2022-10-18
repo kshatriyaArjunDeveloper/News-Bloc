@@ -8,12 +8,13 @@ import 'package:news_bloc/core/values/screen_navigation_constants.dart';
 import 'package:news_bloc/data/data_source/news_api_remote_data_source.dart';
 import 'package:news_bloc/domain/models/news_model.dart';
 import 'package:news_bloc/domain/repositories/news_repository.dart';
+import 'package:news_bloc/presentation/screens/dashboard/cubit/b_n_b_cubit.dart';
+import 'package:news_bloc/presentation/screens/dashboard/view/dashboard_screen.dart';
 import 'package:news_bloc/presentation/screens/news_detail_screen/view/news_detail_screen.dart';
-
-import '../screens/home_screen/view/home_screen.dart';
 
 class AppRouter {
   /* CUBITS AND BLOCKS */
+  late BNBCubit _bnbCubit;
   late NewsCubit _newsCubit;
   late InternetCubit _internetCubit;
 
@@ -30,6 +31,7 @@ class AppRouter {
 
     _newsCubit = NewsCubit(newsRepository: newsRepository);
     _internetCubit = InternetCubit(connectivity: Connectivity());
+    _bnbCubit = BNBCubit();
   }
 
   Route? onGenerateRoute(RouteSettings routeSettings) {
@@ -38,13 +40,14 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => MultiBlocProvider(
             providers: [
+              BlocProvider.value(value: _bnbCubit),
               BlocProvider.value(value: _internetCubit),
               BlocProvider.value(value: _newsCubit),
             ],
-            child: const HomeScreen(),
+            child: const DashboardScreen(),
           ),
         );
-      case ScreenNavigation.newsDetailsScreen:
+      case ScreenRoutes.newsDetailsScreen:
         final args = routeSettings.arguments as NewsModel;
         return MaterialPageRoute(
           builder: (_) => NewsDetailScreen(

@@ -13,7 +13,7 @@ class NewsDetailScreen extends StatelessWidget {
       BuildContext context, NewsModel newsModelArgument) {
     Navigator.pushNamed(
       context,
-      ScreenNavigation.newsDetailsScreen,
+      ScreenRoutes.newsDetailsScreen,
       arguments: newsModelArgument,
     );
   }
