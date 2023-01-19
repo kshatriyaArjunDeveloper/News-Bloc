@@ -12,16 +12,24 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
 
+  # Custom package
+  hello:
+    git:
+      url: https://github.com/kshatriyaArjunDeveloper/hello-ui.git
+      ref: v1/goStops
+
   # BLOC State Management
   flutter_bloc: ^8.0.0
-  # For API calls
+
+  # Utility
+  equatable: ^2.0.5
   dio: ^4.0.6
-  # For Internet connectivity
   connectivity_plus: ^2.3.7
-  # Lottie
+
+  # UI
   lottie: ^1.4.3
-  #  App Icons
   flutter_launcher_icons: ^0.10.0
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
